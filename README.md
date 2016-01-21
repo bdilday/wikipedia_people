@@ -1,16 +1,23 @@
 # wikipedia_people
 
-A Python script to collect data on influential people from wikipedia. The purpose is to programatically generate a data set similatr to the one used in this Wait But Why blog post (horizontal history):
- http://waitbutwhy.com/2016/01/horizontal-history.html
+A Python script to collect data on influential people from wikipedia. The purpose is to programmatically generate a
+data set similar to the one used in this Wait But Why blog post (horizontal history):
+
+http://waitbutwhy.com/2016/01/horizontal-history.html
 
 Currently it collects length of a persons wikipedia entry, the number of links that point to their page, and the year of their demise. A possible next step is to parse the categories in more detail, i.e. artist, scientist, politician, etc... or to apply PageRank, similar to this http://arxiv.org/abs/1405.7183
 
-The data are written as csv files in the data directory. I did not include a header in each file in order to simplify
-concatenation of the files. There is an example header provided in the header.txt in the data directory.
+The data are written as csv files in the data directory. Each file is named by the year of birth, i.e.,
+wiki_XXXX.csv, where XXX is the year of birth for each person listed in the file. I did not include a header in the data
+files in order to simplify
+concatenation of the files.
+There is an example header provided in the header.txt file in the data directory.
+
+```length,linkshere,pagelinkshere,year_birth,year_demise,name```
 
 The column meanings are:
 ```
-length: length of the article. Specifically, the page size exposed by the wikipedia API.
+length: length of the article. Specifically, the page size property exposed by the wikipedia API.
 linkshere: count of the wikipedia API property linkshere.
 pagelinkshere: count of the wikipedia API property linkshere, filtered to include only other wikipedia pages.
                Some pages have lots of links from Talk or User pages, which are less relevant for determining
@@ -21,8 +28,8 @@ name: title of the page. Usually this is the persons name, but sometimes has add
       William Smith (lexicographer)
 ```
 
-The best way to assess cultural and historical significance from these data is debateable, but pagelinkshere is the best default metric to use.
-You can run the shell script top10.sh to get a list of the top10.sh, over all years, sorted by pagelinkshere, e.g.,
+The best way to assess cultural and historical significance from these data is debatable, but ```pagelinkshere``` is a reasonable default metric to use.
+You can run the shell script ```top10.sh``` to get a list of the top 10, over all years, sorted by ```pagelinkshere```, e.g.,
 ```
 $ ./top10.sh
  1707 1778 Carl Linnaeus
