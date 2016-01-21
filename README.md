@@ -8,7 +8,7 @@ http://waitbutwhy.com/2016/01/horizontal-history.html
 Currently it collects length of a persons wikipedia entry, the number of links that point to their page, and the year of their demise. A possible next step is to parse the categories in more detail, i.e. artist, scientist, politician, etc... or to apply PageRank, similar to this http://arxiv.org/abs/1405.7183
 
 The data are written as csv files in the data directory. Each file is named by the year of birth, i.e.,
-wiki_XXXX.csv, where XXX is the year of birth for each person listed in the file. I did not include a header in the data
+wiki_XXXX.csv, where XXXX is the year of birth for each person listed in the file. I did not include a header in the data
 files in order to simplify
 concatenation of the files.
 There is an example header provided in the header.txt file in the data directory.
