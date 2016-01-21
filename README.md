@@ -13,7 +13,7 @@ files in order to simplify
 concatenation of the files.
 There is an example header provided in the header.txt file in the data directory.
 
-```length,linkshere,pagelinkshere,year_birth,year_demise,name```
+`length,linkshere,pagelinkshere,year_birth,year_demise,name`
 
 The column meanings are:
 ```
@@ -28,8 +28,8 @@ name: title of the page. Usually this is the persons name, but sometimes has add
       William Smith (lexicographer)
 ```
 
-The best way to assess cultural and historical significance from these data is debatable, but ```pagelinkshere``` is a reasonable default metric to use.
-You can run the shell script ```top10.sh``` to get a list of the top 10, over all years, sorted by ```pagelinkshere```, e.g.,
+The best way to assess cultural and historical significance from these data is debatable, but `pagelinkshere` is a reasonable default metric to use.
+You can run the shell script `top10.sh` to get a list of the top 10, over all years, sorted by `pagelinkshere`, e.g.,
 ```
 $ ./top10.sh
  1707 1778 Carl Linnaeus
@@ -69,4 +69,3 @@ $ ./top10.sh 20
  1883 1945 Benito Mussolini
  1809 1882 Charles Darwin
 ```
-
