@@ -42,6 +42,7 @@ def gather_results(year=1755, prop='info|linkshere|categories', vbose=False):
 
                 if not t in aa:
                     aa[t] = {'linkshere': 0, 'length': 0, 'demise': -9999, 'linkspage': 0}
+
                     if vbose:
                         print('new t', t, year)
 
