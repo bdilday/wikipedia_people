@@ -5,10 +5,61 @@ A Python script to collect data on influential people from wikipedia. The purpos
 
 Currently it collects length of a persons wikipedia entry, the number of links that point to their page, and the year of their demise. A possible next step is to parse the categories in more detail, i.e. artist, scientist, politician, etc... or to apply PageRank, similar to this http://arxiv.org/abs/1405.7183
 
-The data are written as csv files with out a header, and columns length of article, number of links to the article, number of links to article originating from a page (i.e not a forum, etc...), year of birth, year of demise, title of article (i.e. name or description of person)
+The data are written as csv files in the data directory. I did not include a header in each file in order to simplify
+concatenation of the files. There is an example header provided in the header.txt in the data directory.
 
-An example bash command to take top 10 by inward links:
+The column meanings are:
+```
+length: length of the article. Specifically, the page size exposed by the wikipedia API.
+linkshere: count of the wikipedia API property linkshere.
+pagelinkshere: count of the wikipedia API property linkshere, filtered to include only other wikipedia pages.
+               Some pages have lots of links from Talk or User pages, which are less relevant for determining
+               cultural and historical significance, and this measure removes those.
+year_birth: name says it all
+year_demise:
+name: title of the page. Usually this is the persons name, but sometimes has addition information, e.g.,
+      William Smith (lexicographer)
+```
+
+The best way to assess cultural and historical significance from these data is debateable, but pagelinkshere is the best default metric to use.
+You can run the shell script top10.sh to get a list of the top10.sh, over all years, sorted by pagelinkshere, e.g.,
+```
+$ ./top10.sh
+ 1707 1778 Carl Linnaeus
+ 1809 1865 Abraham Lincoln
+ 1882 1945 Franklin D. Roosevelt
+ 1874 1965 Winston Churchill
+ 1819 1901 Queen Victoria
+ 1732 1799 George Washington
+ 1769 1821 Napoleon
+ 1859 1926 Sidney Lee
+ 1878 1953 Joseph Stalin
+ 1858 1919 Theodore Roosevelt
+```
+
+Optionally you may include the command line argument N to list the top N, e.g.,
 
 ```
-$ cat data/*csv | sed 's/,/ /g' | awk '{print $3, $0}' | sort -nr | head -10
+$ ./top10.sh 20
+ 1707 1778 Carl Linnaeus
+ 1809 1865 Abraham Lincoln
+ 1882 1945 Franklin D. Roosevelt
+ 1874 1965 Winston Churchill
+ 1819 1901 Queen Victoria
+ 1732 1799 George Washington
+ 1769 1821 Napoleon
+ 1859 1926 Sidney Lee
+ 1878 1953 Joseph Stalin
+ 1858 1919 Theodore Roosevelt
+ 1743 1826 Thomas Jefferson
+ 1856 1924 Woodrow Wilson
+ 1756 1791 Wolfgang Amadeus Mozart
+ 1869 1948 Mahatma Gandhi
+ 1685 1750 Johann Sebastian Bach
+ 1818 1883 Karl Marx
+ 1822 1885 Ulysses S. Grant
+ 1879 1955 Albert Einstein
+ 1883 1945 Benito Mussolini
+ 1809 1882 Charles Darwin
 ```
+
