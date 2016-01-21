@@ -1,4 +1,5 @@
 
+from __future__ import print_function
 import requests
 import os
 import re
@@ -25,7 +26,7 @@ def query(request):
         if 'continue' not in result: break
         lastContinue = result['continue']
 
-def gather_results(year=1755, prop='info|linkshere|categories'):
+def gather_results(year=1755, prop='info|linkshere|categories', vbose=False):
     data = []
     aa = {}
     prog = re.compile('Category:([0-9]{4})\s+deaths')
@@ -41,7 +42,8 @@ def gather_results(year=1755, prop='info|linkshere|categories'):
 
                 if not t in aa:
                     aa[t] = {'linkshere': 0, 'length': 0, 'demise': -9999, 'linkspage': 0}
-                    print 'new t', t, year
+                    if vbose:
+                        print('new t', t, year)
 
                 if 'length' in v[k]:
                     length = v[k]['length']
@@ -69,21 +71,26 @@ def gather_results(year=1755, prop='info|linkshere|categories'):
 
 if __name__=='__main__':
 
-    minyr = 1685
-    maxyr = 1925
+    minyr = 1642 # Newton
+    maxyr = 1642
 
     for yr in range(minyr, maxyr+1):
-        print 'starting year', yr
+        print('starting year', yr)
         ofile = 'data/wiki_%d.csv' % yr
         if os.path.exists(ofile):
-            print 'file', ofile, 'exists. continue'
+            print('file {} exists. continue'.format(ofile))
             continue
         data, aa = gather_results(year=yr)
 
         ofp = open(ofile, 'w')
         for k in aa:
-            print k, aa[k]
-            s = '%d,%d,%d,%d,%d,%s\n' % (aa[k]['length'], aa[k]['linkshere'], aa[k]['linkspage'],yr, aa[k]['demise'], unicode(k))
+            print(k, aa[k])
+            s = '%d,%d,%d,%d,%d,%s\n' % (aa[k]['length'],
+                                         aa[k]['linkshere'],
+                                         aa[k]['linkspage'],yr,
+                                         aa[k]['demise'],
+                                         unicode(k)
+            )
             ofp.write(s.encode('utf-8'))
         ofp.close()
 
