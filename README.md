@@ -32,40 +32,40 @@ The best way to assess cultural and historical significance from these data is d
 You can run the shell script `top10.sh` to get a list of the top 10, over all years, sorted by `pagelinkshere`, e.g.,
 ```
 $ ./top10.sh
- 1707 1778 Carl Linnaeus
- 1809 1865 Abraham Lincoln
- 1882 1945 Franklin D. Roosevelt
- 1874 1965 Winston Churchill
- 1819 1901 Queen Victoria
- 1732 1799 George Washington
- 1769 1821 Napoleon
- 1859 1926 Sidney Lee
- 1878 1953 Joseph Stalin
- 1858 1919 Theodore Roosevelt
+1889 1945 Adolf Hitler
+1707 1778 Carl Linnaeus
+1809 1865 Abraham Lincoln
+1882 1945 Franklin D. Roosevelt
+1874 1965 Winston Churchill
+1819 1901 Queen Victoria
+1732 1799 George Washington
+1769 1821 Napoleon
+1859 1926 Sidney Lee
+1878 1953 Joseph Stalin
 ```
 
 Optionally you may include the command line argument N to list the top N, e.g.,
 
 ```
 $ ./top10.sh 20
- 1707 1778 Carl Linnaeus
- 1809 1865 Abraham Lincoln
- 1882 1945 Franklin D. Roosevelt
- 1874 1965 Winston Churchill
- 1819 1901 Queen Victoria
- 1732 1799 George Washington
- 1769 1821 Napoleon
- 1859 1926 Sidney Lee
- 1878 1953 Joseph Stalin
- 1858 1919 Theodore Roosevelt
- 1743 1826 Thomas Jefferson
- 1856 1924 Woodrow Wilson
- 1756 1791 Wolfgang Amadeus Mozart
- 1869 1948 Mahatma Gandhi
- 1685 1750 Johann Sebastian Bach
- 1818 1883 Karl Marx
- 1822 1885 Ulysses S. Grant
- 1879 1955 Albert Einstein
- 1883 1945 Benito Mussolini
- 1809 1882 Charles Darwin
+1889 1945 Adolf Hitler
+1707 1778 Carl Linnaeus
+1809 1865 Abraham Lincoln
+1882 1945 Franklin D. Roosevelt
+1874 1965 Winston Churchill
+1819 1901 Queen Victoria
+1732 1799 George Washington
+1769 1821 Napoleon
+1859 1926 Sidney Lee
+1878 1953 Joseph Stalin
+1858 1919 Theodore Roosevelt
+1890 1969 Dwight D. Eisenhower
+1743 1826 Thomas Jefferson
+1902 1983 Nikolaus Pevsner
+1908 1973 Lyndon B. Johnson
+1856 1924 Woodrow Wilson
+1756 1791 Wolfgang Amadeus Mozart
+1869 1948 Mahatma Gandhi
+1685 1750 Johann Sebastian Bach
+1818 1883 Karl Marx
 ```
