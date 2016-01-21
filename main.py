@@ -40,7 +40,7 @@ def gather_results(year=1755, prop='info|linkshere|categories'):
                 t = v[k]['title']
 
                 if not t in aa:
-                    aa[t] = {'linkshere': 0, 'length': 0, 'demise': -9999}
+                    aa[t] = {'linkshere': 0, 'length': 0, 'demise': -9999, 'linkspage': 0}
                     print 'new t', t, year
 
                 if 'length' in v[k]:
@@ -50,8 +50,11 @@ def gather_results(year=1755, prop='info|linkshere|categories'):
 
                 if 'linkshere' in v[k]:
                     linkshere = len(v[k]['linkshere'])
+                    ss = [1 for x in v[k]['linkshere'] if x['ns']==0]
+                    linkspage = sum(ss)
                 else:
                     linkshere = 0
+                    linkspage = 0
 
                 if 'categories' in v[k]:
                     for c in v[k]['categories']:
@@ -60,6 +63,7 @@ def gather_results(year=1755, prop='info|linkshere|categories'):
                             aa[t]['demise'] = int(re_match.group(1))
                 aa[t]['length'] += length
                 aa[t]['linkshere'] += linkshere
+                aa[t]['linkspage'] += linkspage
 
     return data, aa
 
@@ -79,7 +83,7 @@ if __name__=='__main__':
         ofp = open(ofile, 'w')
         for k in aa:
             print k, aa[k]
-            s = '%d,%d,%d,%d,%s\n' % (aa[k]['length'], aa[k]['linkshere'], yr, aa[k]['demise'], unicode(k))
+            s = '%d,%d,%d,%d,%d,%s\n' % (aa[k]['length'], aa[k]['linkshere'], aa[k]['linkspage'],yr, aa[k]['demise'], unicode(k))
             ofp.write(s.encode('utf-8'))
         ofp.close()
 
