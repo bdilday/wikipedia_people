@@ -73,7 +73,7 @@ def gather_results(year=1755, prop='info|linkshere|categories', vbose=False):
 if __name__=='__main__':
 
     minyr = 1642 # Newton
-    maxyr = 1642
+    maxyr = 1925 
 
     for yr in range(minyr, maxyr+1):
         print('starting year', yr)
