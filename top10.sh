@@ -10,4 +10,4 @@ fi
 #cat data/*csv | sed 's/,/ /g' | awk '{print $3, $0}' | sort -nr | head -${ntop}
     
 # alternative format
-cat data/*csv | sed 's/ /_/g' | sed 's/,/ /g' | awk '{print $3, $0}' | sort -nr | head -${ntop} | awk '{print $5, $6, $7}' | sed 's/_/ /g'
+cat data/wiki*csv | sed 's/ /_/g' | sed 's/,/ /g' | awk '{print $3, $0}' | sort -nr | head -${ntop} | awk '{print $5, $6, $7}' | sed 's/_/ /g'
