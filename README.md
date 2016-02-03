@@ -13,6 +13,8 @@ files in order to simplify
 concatenation of the files.
 There is an example header provided in the header.txt file in the data directory.
 
+__Note:__ The name field sometime contains commas and double quotes which may cause probelsm with importing the csv files. I removed the extra commas in the all.csv file and am working on removing both commas and quotation marks from the individual year files.
+  
 `length,linkshere,pagelinkshere,year_birth,year_demise,name`
 
 The column meanings are:
